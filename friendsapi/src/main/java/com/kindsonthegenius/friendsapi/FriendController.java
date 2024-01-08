@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin
 @RestController
 public class FriendController {
 
@@ -18,7 +19,7 @@ public class FriendController {
     }
 
     @PostMapping("/friends/addnew")
-    public void addFriend(Friend friend)
+    public void addFriend(@RequestBody  Friend friend)
     {
         service.addFriend(friend);
     }
@@ -29,7 +30,7 @@ public class FriendController {
         service.updateFriend(friend);
     }
     @DeleteMapping("/friends/{id}/delete")
-    public void deleteFriend(@PathVariable("id") Integer id, @RequestBody Friend friend)
+    public void deleteFriend(@PathVariable("id") Integer id)
     {
         service.deleteFriend(id);
     }
